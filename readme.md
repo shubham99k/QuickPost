@@ -68,3 +68,5 @@ QuickPost/
 5. Open in your browser
 
     http://localhost:3000
+
+All SET :)
