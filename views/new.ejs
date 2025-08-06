@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New Post - QuickPost</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/title.png">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="quickpost-body">
+
+    <!-- Page Title -->
+    <h1 id="new-post-title">📝 Create a New Post</h1>
+
+    <!-- New Post Form -->
+    <form method="POST" action="/posts" id="new-post-form" class="post-form">
+
+        <!-- Username Field -->
+        <label for="post-username" class="form-label">Username:</label><br>
+        <input type="text" id="post-username" name="username" class="form-input" placeholder="Enter your username"
+            required><br><br>
+
+        <!-- Title Field -->
+        <label for="post-title" class="form-label">Title:</label><br>
+        <input type="text" id="post-title" name="title" class="form-input" required><br><br>
+
+        <!-- Content Field -->
+        <label for="post-content" class="form-label">Content:</label><br>
+        <textarea id="post-content" name="content" class="form-textarea" rows="5" required></textarea><br><br>
+
+        <!-- Buttons -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-create">✅ Create</button>
+            <a href="/posts" class="btn btn-cancel">❌ Cancel</a>
+        </div>
+    </form>
+
+</body>
+
+</html>

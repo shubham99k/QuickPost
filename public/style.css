@@ -1,0 +1,278 @@
+/* ========================= */
+/* QuickPost Theme */
+/* ========================= */
+
+/* Root Variables */
+:root {
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+  --text-color: #fff;
+  --text-secondary: #d1d5db;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #9333ea;
+  --danger: #ef4444;
+  --success: #10b981;
+  --btn-radius: 10px;
+  --shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Body with fixed background */
+body#quickpost-body {
+  font-family: 'Roboto', sans-serif;  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-overlay) url("/bg2.png") center center no-repeat fixed;
+  background-size: 100%; /* smaller % = zoom out, bigger % = zoom in */
+  background-blend-mode: darken;
+}
+
+h1, h2, .post-title {
+  font-family: 'Raleway', sans-serif; /* ✅ Headings font */
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+button, .btn, .btn-edit, .newpost-btn {
+  font-family:  sans-serif; /* ✅ Buttons font */
+}
+/* ========================= */
+/* Logo */
+/* ========================= */
+#logo {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+
+/* #logo:hover {
+  transform: scale(1.05);
+} */
+
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+a, button {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn, 
+button, 
+.newpost-btn, 
+.btn-create, 
+.btn-update, 
+.btn-cancel, 
+.btn-edit, 
+.btn-delete, 
+.btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  border: none;
+  color: white;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 8px 16px; /* ✅ same padding for both */
+  font-size: 0.95rem; /* slightly smaller so text fits better */
+}
+
+
+
+.newpost-btn, .btn-create, .btn-update {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.newpost-btn:hover, .btn-create:hover, .btn-update:hover {
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+  transform: translateY(-2px);
+}
+
+.btn-cancel, .btn-back {
+  background: gray;
+}
+
+.btn-cancel:hover, .btn-back:hover {
+  background: #555;
+}
+
+.btn-edit {
+  background: #3b82f6;
+}
+
+.btn-edit:hover {
+  background: #2563eb;
+}
+
+.btn-delete {
+  background: var(--danger);
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+.newpost-btn {
+  margin-bottom: 30px;
+}
+
+/* ========================= */
+/* Forms */
+/* ========================= */
+.post-form {
+  background: #ffffff; /* ✅ Solid background */
+  color: #111; /* Dark text for readability */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.form-input, 
+.form-textarea {
+  width: calc(100% - 10px); /* leaves some space on right */
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  margin-right: 5px; /* ✅ adds right margin */
+  font-size: 1rem;
+  color: #111;
+  box-sizing: border-box; /* ensures padding doesn’t mess with width */
+}
+
+
+.form-textarea {
+  resize: vertical;
+}
+
+#edit-title{
+  font-family: 'Raleway', sans-serif;
+}
+
+#edit-content{
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ========================= */
+/* Post Cards */
+/* ========================= */
+.post-card, 
+.post-detail-card {
+  background: #ffffff; /* ✅ Solid background */
+  color: #111; /* Dark text for readability */
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: var(--shadow);
+}
+
+.post-card:hover {
+  background: #f9f9f9; /* Slightly lighter on hover */
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.post-excerpt, 
+.post-content {
+  font-size: 1rem;
+  color: #333;
+}
+
+.post-user {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--accent-primary);
+}
+
+/* Post date styling */
+.post-date {
+  font-size: 0.85rem;      /* smaller than content */
+  color: #66666695;             /* lighter gray */
+  display: block;          /* full-width line */
+  margin-top: 1%;
+  font-style: italic;      /* subtle difference */
+  padding-bottom: 1rem;
+}
+
+.post-id{
+  font-size: 0.85rem;      /* smaller than content */
+  color: #66666695;             /* lighter gray */
+  display: block;          /* full-width line */
+  margin-top: 5%;
+  font-style: italic;      /* subtle difference */
+}
+
+#post-title{
+  font-family: 'Raleway', sans-serif;
+}
+
+#post-content{
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* ========================= */
+/* Utility */
+/* ========================= */
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+#no-posts-msg {
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+  body#quickpost-body {
+    padding: 20px;
+  }
+}
+
+/* Post action buttons grouped with gap */
+.post-actions {
+  display: flex;
+  gap: 10px; /* space between buttons */
+  flex-wrap: wrap; /* allows them to wrap on small screens */
+  margin-bottom: 15px; /* space below buttons */
+}
+
+.back-btn {
+  margin-top: 10px; /* extra space above Back button */
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= post.title ? post.title : "Post in Detail" %>
+    </title>
+    <link rel="icon" type="image/png" href="/title.png">
+    <link rel="stylesheet" href="/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="quickpost-body">
+
+    <!-- Page Title -->
+    <h1 id="detail-page-title">📖 Post in Detail</h1>
+
+    <!-- Post Container -->
+    <div class="post-detail-card">
+
+        <!-- Username -->
+        <h3 class="post-user">@<%= post.username %>
+        </h3>
+
+        <!-- Title -->
+        <% if (post.title) { %>
+            <h2 class="post-title">
+                <%= post.title %>
+            </h2>
+            <% } %>
+
+                <!-- Content -->
+                <p class="post-content">
+                    <%= post.content %>
+                </p>
+
+                <!-- Metadata -->
+                <div class="post-meta">
+                    <small class="post-id">🆔 Post ID: <%= post.id %></small><br>
+                    <small class="post-date">🕒 Created: <%= post.created_at ? post.created_at.toLocaleString()
+                            : "Unknown" %></small>
+                </div>
+
+                <!-- Actions -->
+                <div class="post-actions">
+                    <a href="/posts/<%= post._id %>/edit" class="btn btn-edit">✏️ Edit</a>
+                    <form method="POST" action="/posts/<%= post._id %>?_method=DELETE" class="delete-form"
+                        style="display:inline;" onsubmit="confirmDelete(event)">
+                        <button type="submit" class="btn btn-delete">🗑 Delete</button>
+                    </form>
+                </div>
+
+                <!-- Back Button -->
+                <a href="/posts" class="btn btn-back">← Back to All Posts</a>
+    </div>
+
+    <script src="/deleteConfirm.js"></script>
+</body>
+
+</html>

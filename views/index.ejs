@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QuickPost - All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/title.png">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="quickpost-body">
+    <!-- Logo & Title -->
+    <h1 id="site-title">
+        <img id="logo" class="logo-img" src="/file.svg" alt="QuickPost">
+    </h1>
+
+    <!-- New Post Button -->
+    <a class="newpost-btn" id="create-post-btn" href="/posts/new">➕ New Post</a>
+
+    <!-- Posts List -->
+    <% if (posts.length> 0) { %>
+        <div id="posts-container">
+            <% posts.forEach((post)=> { %>
+                <div class="post-card">
+                    <h2 class="post-title">
+                        <%= post.title %>
+                    </h2>
+                    <p class="post-excerpt">
+                        <%= post.content.length> 100 ? post.content.substring(0, 100) + "..." : post.content %>
+                    </p>
+                    <small class="post-date">
+                        🕒 Created at: <%= post.created_at.toLocaleString() %>
+                    </small><br>
+
+                    <!-- Action Buttons -->
+                    <div class="post-actions">
+                        <a href="/posts/<%= post._id %>" class="btn-detail">📖 Read in Detail</a>
+                        <a href="/posts/<%= post._id %>/edit" class="btn-edit">✏️ Edit</a>
+                        <form method="POST" action="/posts/<%= post._id %>?_method=DELETE"
+                            onsubmit="confirmDelete(event)">
+                            <button type="submit" class="btn-delete">🗑 Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+                <% }) %>
+        </div>
+        <% } else { %>
+            <p id="no-posts-msg">
+                No posts found. <a href="/posts/new" class="create-link">Create one</a>
+            </p>
+            <% } %>
+
+                <script src="/deleteConfirm.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Post - QuickPost</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/title.png">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="quickpost-body">
+
+    <!-- Page Title -->
+    <h1 id="edit-post-title">✏️ Edit Post</h1>
+
+    <!-- Edit Post Form -->
+    <form method="POST" action="/posts/<%= post._id %>?_method=PUT" id="edit-post-form" class="post-form">
+
+        <!-- Title Field -->
+        <label for="edit-title" class="form-label">Title:</label><br>
+        <input type="text" id="edit-title" name="title" class="form-input" value="<%= post.title %>" required><br><br>
+
+        <!-- Content Field -->
+        <label for="edit-content" class="form-label">Content:</label><br>
+        <textarea id="edit-content" name="content" class="form-textarea" rows="5"
+            required><%= post.content %></textarea><br><br>
+
+        <!-- Buttons -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-update">💾 Update</button>
+            <a href="/posts" class="btn btn-cancel">❌ Cancel</a>
+        </div>
+    </form>
+
+</body>
+
+</html>
