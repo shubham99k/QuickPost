@@ -67,6 +67,6 @@ QuickPost/
 
 5. Open in your browser
 
-    http://localhost:3000
+    http://localhost:8080/
 
 All SET :)
